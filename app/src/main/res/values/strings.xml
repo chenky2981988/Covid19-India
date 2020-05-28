@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Covid-19 Report</string>
+    <string name="app_name">Covid-19 Update</string>
     <string name="title_activity_main">MainActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -9,4 +9,5 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="back_message">Press back again to exit.</string>
 </resources>
