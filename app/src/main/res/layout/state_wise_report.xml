@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/dimen_16"
+    android:layout_marginTop="@dimen/dimen_8"
+    android:layout_marginEnd="@dimen/dimen_16"
+    android:layout_marginBottom="@dimen/dimen_8"
+    android:padding="@dimen/dimen_8"
+    app:cardBackgroundColor="@color/colorWhite"
+    app:cardCornerRadius="@dimen/dimen_16"
+    app:cardElevation="@dimen/dimen_4">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/stateNameTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/roboto_medium"
+            android:singleLine="true"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Maharashtra" />
+
+        <TextView
+            android:id="@+id/stateLastUpdatedTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/roboto_light"
+            android:singleLine="true"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/stateNameTv"
+            tools:text="Last updated before 1 min" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+            app:layout_constraintEnd_toStartOf="@+id/imageView3"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageView3"
+            app:srcCompat="@drawable/ic_virus"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+            app:layout_constraintEnd_toStartOf="@+id/imageView5"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="@+id/imageView5"
+            app:srcCompat="@drawable/ic_patient"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+            app:layout_constraintEnd_toStartOf="@+id/imageView7"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imageView3"
+            app:layout_constraintTop_toTopOf="@+id/imageView7"
+            app:srcCompat="@drawable/ic_heart"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imageView5"
+            app:layout_constraintTop_toBottomOf="@+id/stateLastUpdatedTime"
+            app:srcCompat="@drawable/ic_death"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/stateConfirmedCasesTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@+id/imageView2"
+            app:layout_constraintStart_toStartOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            tools:text="50000" />
+
+        <ImageView
+            android:id="@+id/confirmTrendingIv"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_marginStart="4dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="@+id/imageView2"
+            app:srcCompat="@drawable/ic_trending_up"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/stateNewConfirmedTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_light"
+            android:textAlignment="center"
+            android:textSize="8sp"
+            app:layout_constraintEnd_toEndOf="@+id/confirmTrendingIv"
+            app:layout_constraintStart_toStartOf="@+id/confirmTrendingIv"
+            app:layout_constraintTop_toBottomOf="@+id/confirmTrendingIv"
+            tools:ignore="SmallSp"
+            tools:text="340" />
+
+        <TextView
+            android:id="@+id/stateActiveCasesTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            app:layout_constraintEnd_toEndOf="@+id/imageView3"
+            app:layout_constraintStart_toStartOf="@+id/imageView3"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3"
+            tools:text="34000" />
+
+        <ImageView
+            android:id="@+id/stateRecoveredTrendingIv"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_marginStart="4dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toEndOf="@+id/imageView5"
+            app:layout_constraintTop_toTopOf="@+id/imageView5"
+            app:srcCompat="@drawable/ic_trending_up"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/stateNewRecoveredCasesTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_light"
+            android:textSize="8sp"
+            app:layout_constraintEnd_toEndOf="@+id/stateRecoveredTrendingIv"
+            app:layout_constraintStart_toStartOf="@+id/stateRecoveredTrendingIv"
+            app:layout_constraintTop_toBottomOf="@+id/stateRecoveredTrendingIv"
+            tools:ignore="SmallSp"
+            tools:text="345" />
+
+        <TextView
+            android:id="@+id/stateRecoveredTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            app:layout_constraintEnd_toEndOf="@+id/imageView5"
+            app:layout_constraintStart_toStartOf="@+id/imageView5"
+            app:layout_constraintTop_toBottomOf="@+id/imageView5"
+            tools:text="45000" />
+
+        <ImageView
+            android:id="@+id/stateDeathTrendingIv"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_marginStart="4dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toEndOf="@+id/imageView7"
+            app:layout_constraintTop_toTopOf="@+id/imageView7"
+            app:srcCompat="@drawable/ic_trending_up"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/stateNewDeathTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_light"
+            android:textAlignment="center"
+            android:textSize="8sp"
+            app:layout_constraintEnd_toEndOf="@+id/stateDeathTrendingIv"
+            app:layout_constraintStart_toStartOf="@+id/stateDeathTrendingIv"
+            app:layout_constraintTop_toBottomOf="@+id/stateDeathTrendingIv"
+            tools:ignore="SmallSp"
+            tools:text="456" />
+
+        <TextView
+            android:id="@+id/stateDeathTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            app:layout_constraintEnd_toEndOf="@+id/imageView7"
+            app:layout_constraintStart_toStartOf="@+id/imageView7"
+            app:layout_constraintTop_toBottomOf="@+id/imageView7"
+            tools:text="4000" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/stateConfirmedGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="32dp"
+            tools:layout_editor_absoluteY="59dp"
+            app:constraint_referenced_ids="confirmTrendingIv,stateNewConfirmedTv"/>
+
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/stateRecoveredGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="stateRecoveredTrendingIv,stateNewRecoveredCasesTv"
+            tools:layout_editor_absoluteX="32dp"
+            tools:layout_editor_absoluteY="59dp" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/stateDeathGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="32dp"
+            tools:layout_editor_absoluteY="59dp"
+            app:constraint_referenced_ids="stateDeathTrendingIv,stateNewDeathTv"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
