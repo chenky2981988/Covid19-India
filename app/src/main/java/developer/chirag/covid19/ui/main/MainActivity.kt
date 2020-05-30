@@ -1,12 +1,18 @@
 package developer.chirag.covid19.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.MergeAdapter
 import com.google.android.material.snackbar.Snackbar
 import developer.chirag.covid19.R
 import developer.chirag.covid19.api.response.DataResponse
 import developer.chirag.covid19.databinding.ActivityMainBinding
+import developer.chirag.covid19.models.StateWiseDetails
+import developer.chirag.covid19.ui.main.adapters.CountryReportAdapter
+import developer.chirag.covid19.ui.main.adapters.StateReportAdapter
+import developer.chirag.covid19.ui.stateDetails.StateDetailsActivity
 import developer.chirag.covid19.utils.getLastUpdatedDisplay
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
@@ -25,16 +31,25 @@ class MainActivity : AppCompatActivity() {
         Snackbar.make(activityBinding.root, R.string.back_message, Snackbar.LENGTH_SHORT)
     }
 
+    private val countryReportAdapter = CountryReportAdapter()
+    private val stateReportAdapter = StateReportAdapter(this::onStateClicked)
+    private val recyclerViewAdapter = MergeAdapter(countryReportAdapter, stateReportAdapter)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         activityBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(activityBinding.root)
 
+        initView()
+
+        initDataAndObserver()
+    }
+
+    private fun initView() {
+        activityBinding.recyclerView.adapter = recyclerViewAdapter
         activityBinding.swipeRefreshLayout.setOnRefreshListener {
             loadCovid19Data()
         }
-
-        initDataAndObserver()
     }
 
     private fun initDataAndObserver() {
@@ -45,7 +60,12 @@ class MainActivity : AppCompatActivity() {
                     activityBinding.swipeRefreshLayout.isRefreshing = false
 
                     val dataList = it.data.stateWise
-                    activityBinding.lastUpdateTimeTv.setText(getLastUpdatedDisplay(dataList.get(0).lastUpdatedTime))
+                    countryReportAdapter.submitList(dataList.subList(0, 1))
+                    stateReportAdapter.submitList(dataList.subList(1, dataList.size - 1))
+                    activityBinding.lastUpdateTimeTv.text = getString(
+                        R.string.last_updated_time,
+                        getLastUpdatedDisplay(dataList.get(0).lastUpdatedTime)
+                    )
                 }
                 is DataResponse.Error -> {
                     activityBinding.swipeRefreshLayout.isRefreshing = false
@@ -55,7 +75,7 @@ class MainActivity : AppCompatActivity() {
 
         })
 
-        if(mainActivityViewModel.covid19LiveData.value !is DataResponse.Success) {
+        if (mainActivityViewModel.covid19LiveData.value !is DataResponse.Success) {
             mainActivityViewModel.getIndiaCovid19Data()
         }
     }
@@ -63,6 +83,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun loadCovid19Data() {
         mainActivityViewModel.getIndiaCovid19Data()
+    }
+
+    private fun onStateClicked(stateWiseDetails: StateWiseDetails) {
+        startActivity(Intent(this, StateDetailsActivity::class.java).apply {
+            putExtra(StateDetailsActivity.KEY_SELECTED_STATE, stateWiseDetails)
+        })
     }
 
 

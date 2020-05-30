@@ -1,11 +1,11 @@
-package developer.chirag.covid19.ui.main
+package developer.chirag.covid19.ui.stateDetails
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import developer.chirag.covid19.api.response.DataResponse
-import developer.chirag.covid19.models.StateWise
+import developer.chirag.covid19.models.StateDetails
 import developer.chirag.covid19.repositories.MainRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
@@ -15,23 +15,20 @@ import kotlinx.coroutines.launch
 
 
 /**
- * Created by Chirag Sidhiwala on 29/5/20.
+ * Created by Chirag Sidhiwala on 30/5/20.
  */
 @FlowPreview
 @ExperimentalCoroutinesApi
 @InternalCoroutinesApi
-class MainActivityViewModel(private val mainRepository: MainRepository) : ViewModel() {
-    private val covid19MutableLiveData = MutableLiveData<DataResponse<StateWise>>()
+class StateDetailsViewModel(private val mainRepository: MainRepository): ViewModel() {
+    private val stateCovid19MutableLiveData = MutableLiveData<DataResponse<StateDetails>>()
+    val stateCovid19LiveData: LiveData<DataResponse<StateDetails>> = stateCovid19MutableLiveData
 
-    val covid19LiveData: LiveData<DataResponse<StateWise>> = covid19MutableLiveData
-
-    fun getIndiaCovid19Data() {
+    fun getStateDistrictReport(stateName: String) {
         viewModelScope.launch {
-            mainRepository.getCovidIndiaData().collect {
-                covid19MutableLiveData.value = it
+            mainRepository.getStateDistrictWiseData(stateName).collect {
+                stateCovid19MutableLiveData.value = it
             }
         }
     }
-
-
 }

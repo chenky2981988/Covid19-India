@@ -4,7 +4,7 @@ import android.content.Context
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import developer.chirag.covid19.api.Covid19IndiaApiService
-import developer.chirag.covid19.repositories.MainRepositoy
+import developer.chirag.covid19.repositories.MainRepository
 import developer.chirag.covid19.utils.isInternetAvailable
 import okhttp3.Cache
 import okhttp3.OkHttpClient
@@ -33,7 +33,7 @@ val retrofitModule = module {
     }
 
     single {
-        MainRepositoy(get())
+        MainRepository(get())
     }
 }
 

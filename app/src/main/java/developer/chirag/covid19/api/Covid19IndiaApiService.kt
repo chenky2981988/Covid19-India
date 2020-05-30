@@ -14,7 +14,7 @@ interface Covid19IndiaApiService {
     @GET("data.json")
     suspend fun getCovid19Data(): Response<StateWise>
 
-    @GET("state_district_wise.json")
+    @GET("v2/state_district_wise.json")
     suspend fun getStateDistrictWiseData(): Response<List<StateDetails>>
 
     companion object {
