@@ -84,11 +84,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:fontFamily="@font/roboto"
+                android:text="Confirmed"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/totalConfirmedTv"
                 app:layout_constraintStart_toStartOf="@+id/totalConfirmedTv"
-                app:layout_constraintTop_toBottomOf="@+id/totalConfirmedTv"
-                tools:text="Confirmed" />
+                app:layout_constraintTop_toBottomOf="@+id/totalConfirmedTv" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/groupNewConfirmed"
@@ -289,7 +289,7 @@
                 tools:ignore="ContentDescription" />
 
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/totalDeathTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -309,9 +309,9 @@
                 android:text="Deaths"
                 android:textAlignment="center"
                 android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="@+id/textView11"
-                app:layout_constraintStart_toStartOf="@+id/textView11"
-                app:layout_constraintTop_toBottomOf="@+id/textView11" />
+                app:layout_constraintEnd_toEndOf="@+id/totalDeathTv"
+                app:layout_constraintStart_toStartOf="@+id/totalDeathTv"
+                app:layout_constraintTop_toBottomOf="@+id/totalDeathTv" />
 
             <ImageView
                 android:id="@+id/deathTrendingIv"

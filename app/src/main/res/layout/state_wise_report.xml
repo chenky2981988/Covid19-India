@@ -15,7 +15,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimen_4">
 
         <TextView
             android:id="@+id/stateNameTv"
@@ -36,13 +37,15 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:fontFamily="@font/roboto_light"
+            android:fontFamily="@font/roboto_light_italic"
             android:singleLine="true"
             android:textAlignment="center"
+            android:textSize="10sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/stateNameTv"
-            tools:text="Last updated before 1 min" />
+            tools:text="Last updated before 1 min"
+            tools:ignore="SmallSp" />
 
         <ImageView
             android:id="@+id/imageView2"
@@ -214,9 +217,9 @@
             android:id="@+id/stateConfirmedGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:constraint_referenced_ids="confirmTrendingIv,stateNewConfirmedTv"
             tools:layout_editor_absoluteX="32dp"
-            tools:layout_editor_absoluteY="59dp"
-            app:constraint_referenced_ids="confirmTrendingIv,stateNewConfirmedTv"/>
+            tools:layout_editor_absoluteY="59dp" />
 
 
         <androidx.constraintlayout.widget.Group
@@ -231,9 +234,9 @@
             android:id="@+id/stateDeathGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:constraint_referenced_ids="stateDeathTrendingIv,stateNewDeathTv"
             tools:layout_editor_absoluteX="32dp"
-            tools:layout_editor_absoluteY="59dp"
-            app:constraint_referenced_ids="stateDeathTrendingIv,stateNewDeathTv"/>
+            tools:layout_editor_absoluteY="59dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>
