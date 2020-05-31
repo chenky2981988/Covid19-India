@@ -9,11 +9,16 @@
         <item name="android:colorBackground">@color/background_color</item>
         <item name="android:statusBarColor">@color/status_bar_color</item>
         <item name="android:windowLightStatusBar" tools:targetApi="m">@bool/windowLightStatusBar</item>
+
     </style>
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppBarStyle" parent="AppTheme">
+        <item name="fontFamily">@font/roboto_light</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
