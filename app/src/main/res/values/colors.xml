@@ -4,4 +4,7 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="colorWhite">#FFFFFF</color>
+    <color name="confirmed_case_color">#FF4547</color>
+    <color name="active_case_color">#61A2F9</color>
+    <color name="recovered_case_color">#228B22</color>
 </resources>

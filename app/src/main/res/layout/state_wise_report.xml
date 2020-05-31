@@ -58,7 +58,7 @@
             app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/imageView3"
-            app:srcCompat="@drawable/ic_virus"
+            app:srcCompat="@drawable/ic_virus_1"
             tools:ignore="ContentDescription" />
 
         <ImageView
@@ -71,7 +71,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/imageView2"
             app:layout_constraintTop_toTopOf="@+id/imageView5"
-            app:srcCompat="@drawable/ic_patient"
+            app:srcCompat="@drawable/ic_patient_1"
             tools:ignore="ContentDescription" />
 
         <ImageView
@@ -84,7 +84,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/imageView3"
             app:layout_constraintTop_toTopOf="@+id/imageView7"
-            app:srcCompat="@drawable/ic_heart"
+            app:srcCompat="@drawable/ic_heart_new"
             tools:ignore="ContentDescription" />
 
         <ImageView
@@ -110,14 +110,16 @@
             app:layout_constraintEnd_toEndOf="@+id/imageView2"
             app:layout_constraintStart_toStartOf="@+id/imageView2"
             app:layout_constraintTop_toBottomOf="@+id/imageView2"
-            tools:text="50000" />
+            tools:text="50000"
+            android:textColor="@color/confirmed_case_color"/>
 
         <ImageView
             android:id="@+id/confirmTrendingIv"
-            android:layout_width="12dp"
-            android:layout_height="12dp"
-            android:layout_marginStart="4dp"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginStart="8dp"
             android:scaleType="centerCrop"
+            android:tint="@color/confirmed_case_color"
             app:layout_constraintStart_toEndOf="@+id/imageView2"
             app:layout_constraintTop_toTopOf="@+id/imageView2"
             app:srcCompat="@drawable/ic_trending_up"
@@ -134,7 +136,8 @@
             app:layout_constraintStart_toStartOf="@+id/confirmTrendingIv"
             app:layout_constraintTop_toBottomOf="@+id/confirmTrendingIv"
             tools:ignore="SmallSp"
-            tools:text="340" />
+            tools:text="340"
+            android:textColor="@color/confirmed_case_color"/>
 
         <TextView
             android:id="@+id/stateActiveCasesTv"
@@ -144,18 +147,20 @@
             app:layout_constraintEnd_toEndOf="@+id/imageView3"
             app:layout_constraintStart_toStartOf="@+id/imageView3"
             app:layout_constraintTop_toBottomOf="@+id/imageView3"
-            tools:text="34000" />
+            tools:text="34000"
+            android:textColor="@color/active_case_color"/>
 
         <ImageView
             android:id="@+id/stateRecoveredTrendingIv"
-            android:layout_width="12dp"
-            android:layout_height="12dp"
-            android:layout_marginStart="4dp"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginStart="8dp"
             android:scaleType="centerCrop"
             app:layout_constraintStart_toEndOf="@+id/imageView5"
             app:layout_constraintTop_toTopOf="@+id/imageView5"
             app:srcCompat="@drawable/ic_trending_up"
-            tools:ignore="ContentDescription" />
+            tools:ignore="ContentDescription"
+            android:tint="@color/recovered_case_color"/>
 
         <TextView
             android:id="@+id/stateNewRecoveredCasesTv"
@@ -167,7 +172,8 @@
             app:layout_constraintStart_toStartOf="@+id/stateRecoveredTrendingIv"
             app:layout_constraintTop_toBottomOf="@+id/stateRecoveredTrendingIv"
             tools:ignore="SmallSp"
-            tools:text="345" />
+            tools:text="345"
+            android:textColor="@color/recovered_case_color"/>
 
         <TextView
             android:id="@+id/stateRecoveredTv"
@@ -177,13 +183,14 @@
             app:layout_constraintEnd_toEndOf="@+id/imageView5"
             app:layout_constraintStart_toStartOf="@+id/imageView5"
             app:layout_constraintTop_toBottomOf="@+id/imageView5"
-            tools:text="45000" />
+            tools:text="45000"
+            android:textColor="@color/recovered_case_color"/>
 
         <ImageView
             android:id="@+id/stateDeathTrendingIv"
-            android:layout_width="12dp"
-            android:layout_height="12dp"
-            android:layout_marginStart="4dp"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginStart="8dp"
             android:scaleType="centerCrop"
             app:layout_constraintStart_toEndOf="@+id/imageView7"
             app:layout_constraintTop_toTopOf="@+id/imageView7"

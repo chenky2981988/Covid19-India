@@ -5,11 +5,13 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.MergeAdapter
+import androidx.work.*
 import com.google.android.material.snackbar.Snackbar
 import developer.chirag.covid19.R
 import developer.chirag.covid19.api.response.DataResponse
 import developer.chirag.covid19.databinding.ActivityMainBinding
 import developer.chirag.covid19.models.StateWiseDetails
+import developer.chirag.covid19.notification.NotificationWorkManager
 import developer.chirag.covid19.ui.main.adapters.CountryReportAdapter
 import developer.chirag.covid19.ui.main.adapters.StateReportAdapter
 import developer.chirag.covid19.ui.stateDetails.StateDetailsActivity
@@ -18,6 +20,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.InternalCoroutinesApi
 import org.koin.android.viewmodel.ext.android.viewModel
+import java.util.concurrent.TimeUnit
 
 @FlowPreview
 @ExperimentalCoroutinesApi
@@ -43,6 +46,7 @@ class MainActivity : AppCompatActivity() {
         initView()
 
         initDataAndObserver()
+        initWorkerNotification()
     }
 
     private fun initView() {
@@ -91,6 +95,19 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+    private fun initWorkerNotification() {
+        val workerConstraints =
+            Constraints.Builder().setRequiredNetworkType(NetworkType.CONNECTED).build()
+        val periodicNotificationWorkerRequest =
+            PeriodicWorkRequestBuilder<NotificationWorkManager>(2, TimeUnit.HOURS)
+                .setConstraints(workerConstraints)
+                .build()
+
+        WorkManager.getInstance(applicationContext).enqueueUniquePeriodicWork(
+            WORKMANAGER_JOB_TAG, ExistingPeriodicWorkPolicy.KEEP, periodicNotificationWorkerRequest
+        )
+    }
+
 
     override fun onBackPressed() {
         if (backPressTime + 2000 > System.currentTimeMillis()) {
@@ -101,5 +118,9 @@ class MainActivity : AppCompatActivity() {
             backPressSnackbar.show()
         }
         backPressTime = System.currentTimeMillis()
+    }
+
+    companion object {
+        const val WORKMANAGER_JOB_TAG = "NotificationWorkManager"
     }
 }

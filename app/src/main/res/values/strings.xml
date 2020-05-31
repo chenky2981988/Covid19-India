@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Covid-19 Update</string>
+    <string name="app_name">CovIndia</string>
     <string name="title_activity_main">MainActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -11,4 +11,11 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="back_message">Press back again to exit.</string>
     <string name="last_updated_time">Last Updated : %s</string>
+    <string name="notification_channel_id">default</string>
+    <string name="notification_confirmed_cases">Total Confirmed Cases : %s</string>
+    <string name="notification_last_updated">Last Updated : %s</string>
+    <string name="confirmed">Confirmed</string>
+    <string name="recovered">Recovered</string>
+    <string name="active">Active</string>
+    <string name="deaths">Deaths</string>
 </resources>
