@@ -50,6 +50,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initView() {
+        setSupportActionBar(activityBinding.appBarlayout.toolbar)
         activityBinding.recyclerView.adapter = recyclerViewAdapter
         activityBinding.swipeRefreshLayout.setOnRefreshListener {
             loadCovid19Data()

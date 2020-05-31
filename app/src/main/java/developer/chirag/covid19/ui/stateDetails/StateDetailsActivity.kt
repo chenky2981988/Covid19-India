@@ -1,6 +1,7 @@
 package developer.chirag.covid19.ui.stateDetails
 
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.MergeAdapter
@@ -47,10 +48,14 @@ class StateDetailsActivity : AppCompatActivity() {
     }
 
     private fun initView() {
+        setSupportActionBar(activityStateDetailsBinding.appBarlayout.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeButtonEnabled(true);
         activityStateDetailsBinding.stateRecyclerView.adapter = stateDetailsAdapter
 
         val stateWiseDetails: StateWiseDetails? = getSelectedState()
         stateWiseDetails?.let {
+            supportActionBar?.title = it.state
             stateAdapter.submitList(listOf(it))
             activityStateDetailsBinding.lastUpdateTimeTv.text =
                 getString(R.string.last_updated_time, getLastUpdatedDisplay(it.lastUpdatedTime))
@@ -95,6 +100,13 @@ class StateDetailsActivity : AppCompatActivity() {
         selectedState?.state?.let {
             stateDetailsViewModel.getStateDistrictReport(it)
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == android.R.id.home){
+            onBackPressed()
+        }
+        return true
     }
 
     companion object {

@@ -5,6 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.stateDetails.StateDetailsActivity">
+    <include
+        android:id="@+id/appBarlayout"
+        layout="@layout/appbar_layout" />
 
     <TextView
         android:id="@+id/lastUpdateTimeTv"
@@ -13,11 +16,12 @@
         android:layout_marginTop="8dp"
         android:fontFamily="@font/roboto_light_italic"
         android:textAlignment="center"
+        android:textColor="@android:color/black"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/swipeToRefreshLayout"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarlayout"
         tools:text="Last updated: 19 hours ago" />
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout

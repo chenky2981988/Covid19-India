@@ -195,7 +195,8 @@
             app:layout_constraintStart_toEndOf="@+id/imageView7"
             app:layout_constraintTop_toTopOf="@+id/imageView7"
             app:srcCompat="@drawable/ic_trending_up"
-            tools:ignore="ContentDescription" />
+            tools:ignore="ContentDescription"
+            android:tint="@color/death_case_color"/>
 
         <TextView
             android:id="@+id/stateNewDeathTv"
@@ -208,7 +209,8 @@
             app:layout_constraintStart_toStartOf="@+id/stateDeathTrendingIv"
             app:layout_constraintTop_toBottomOf="@+id/stateDeathTrendingIv"
             tools:ignore="SmallSp"
-            tools:text="456" />
+            tools:text="456"
+            android:textColor="@color/death_case_color"/>
 
         <TextView
             android:id="@+id/stateDeathTv"
@@ -218,7 +220,8 @@
             app:layout_constraintEnd_toEndOf="@+id/imageView7"
             app:layout_constraintStart_toStartOf="@+id/imageView7"
             app:layout_constraintTop_toBottomOf="@+id/imageView7"
-            tools:text="4000" />
+            tools:text="4000"
+            android:textColor="@color/death_case_color"/>
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/stateConfirmedGroup"
