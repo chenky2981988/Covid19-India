@@ -18,14 +18,14 @@ fun getLastUpdatedDisplay(lastUpdated: String): String {
     val minutes = TimeUnit.MILLISECONDS.toMinutes(currentTime.time - lastUpdatedTime.time)
     val hours = TimeUnit.MILLISECONDS.toHours(currentTime.time - lastUpdatedTime.time)
 
-    if(seconds < 60) {
-        return "$seconds seconds ago"
+    return if(seconds < 60) {
+        "$seconds seconds ago"
     } else if(minutes < 60) {
-        return "$minutes minutes ago"
+        "$minutes minutes ago"
     } else if(hours < 24) {
-        return "$hours hour ${minutes % 60} minutes ago"
+        "$hours hour ${minutes % 60} minutes ago"
     } else {
-        return SimpleDateFormat("dd/MM/yy, hh:mm a").format(lastUpdatedTime).toString()
+        SimpleDateFormat("dd/MM/yy, hh:mm a").format(lastUpdatedTime).toString()
     }
 
 }

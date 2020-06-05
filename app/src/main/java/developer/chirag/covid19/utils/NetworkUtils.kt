@@ -14,10 +14,10 @@ import android.os.Build
 fun isInternetAvailable(context: Context): Boolean {
     val connectivityManager: ConnectivityManager =
         context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
         val networkCapabilities =
             connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
-        return (networkCapabilities != null
+        (networkCapabilities != null
                 && (networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)
                 || networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)
                 || networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)))
@@ -26,7 +26,7 @@ fun isInternetAvailable(context: Context): Boolean {
         val activeNetwork: NetworkInfo? = connectivityManager.activeNetworkInfo
         if (activeNetwork != null && activeNetwork.isConnected)
             isConnected = true
-        return isConnected!!
+        isConnected!!
     }
 
 }
